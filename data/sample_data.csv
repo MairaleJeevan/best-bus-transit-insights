@@ -1,0 +1,101 @@
+Response_ID,Timestamp,Age_Group,Occupation,Frequent_User_Status,Primary_Route_Number,Travel_Frequency,Peak_Hour_Frequency_Rating,Schedule_Arrival_Reliability,Bottleneck_Delay_Exposure,Primary_Bottleneck_Location,Overcrowding_Level,Bus_Condition_Rating,Cleanliness_Rating,Seating_Comfort_Rating,Ventilation_Rating,Preferred_Payment_Method,Avg_Waiting_Time_Min
+RESP001,2026-09-10 08:30:15,18-25,Student,Yes,364,Daily,2,2,Yes,SCLR,Severe,3,3,3,4,Chalo App,25
+RESP002,2026-09-10 08:32:40,26-35,Employed,Yes,364,5-6 days/week,2,1,Yes,SCLR,Severe,3,3,2,3,Chalo App,30
+RESP003,2026-09-10 08:45:12,18-25,Student,Yes,383,Daily,1,2,Yes,Chembur Station,High,4,4,3,4,Smart Card,20
+RESP004,2026-09-10 09:01:22,36-50,Employed,Yes,363,5-6 days/week,2,2,Yes,Diamond Garden,High,3,3,3,3,Chalo App,25
+RESP005,2026-09-10 09:15:05,26-35,Business/Self-Employed,No,A-21,Occasionally,3,3,Yes,SCLR,Moderate,4,4,4,5,Chalo App,15
+RESP006,2026-09-10 09:20:44,18-25,Student,Yes,364,Daily,2,1,Yes,SCLR,Severe,3,3,2,3,Chalo App,30
+RESP007,2026-09-10 09:35:10,26-35,Employed,Yes,383,Daily,2,2,Yes,Chembur Station,Severe,3,3,3,4,Smart Card,20
+RESP008,2026-09-10 09:42:19,50+,Government,Yes,363,5-6 days/week,1,2,Yes,Diamond Garden,High,4,4,3,4,Cash,25
+RESP009,2026-09-10 09:50:33,18-25,Student,Yes,364,Daily,2,1,Yes,SCLR,Severe,2,3,2,3,Chalo App,35
+RESP010,2026-09-10 10:05:12,26-35,Employed,Yes,364,5-6 days/week,2,2,Yes,SCLR,High,3,3,3,3,Chalo App,25
+RESP011,2026-09-10 10:18:22,36-50,Employed,Yes,383,Daily,2,1,Yes,Chembur Station,Severe,3,4,3,4,Chalo App,25
+RESP012,2026-09-10 10:30:55,18-25,Student,Yes,A-21,3-4 days/week,3,3,No,None,Moderate,5,5,4,5,Chalo App,15
+RESP013,2026-09-10 10:45:00,26-35,Employed,Yes,364,Daily,1,1,Yes,SCLR,Severe,3,3,3,3,Chalo App,30
+RESP014,2026-09-10 11:02:18,50+,Retired,No,363,Occasionally,3,3,No,Diamond Garden,Moderate,4,4,4,4,Cash,20
+RESP015,2026-09-10 11:15:40,18-25,Student,Yes,364,Daily,2,2,Yes,SCLR,Severe,3,3,2,4,Smart Card,25
+RESP016,2026-09-10 11:30:12,26-35,Employed,Yes,383,5-6 days/week,2,1,Yes,Chembur Station,High,3,3,3,3,Chalo App,20
+RESP017,2026-09-10 11:42:05,36-50,Business/Self-Employed,Yes,364,Daily,1,2,Yes,SCLR,Severe,3,3,3,3,Cash,30
+RESP018,2026-09-10 12:00:20,18-25,Student,Yes,363,5-6 days/week,2,2,Yes,Diamond Garden,High,4,4,3,4,Chalo App,25
+RESP019,2026-09-10 12:15:30,26-35,Employed,Yes,A-21,3-4 days/week,4,3,Yes,SCLR,Moderate,5,5,5,5,Chalo App,15
+RESP020,2026-09-10 12:30:45,18-25,Student,Yes,364,Daily,2,1,Yes,SCLR,Severe,3,3,2,3,Chalo App,30
+RESP021,2026-09-10 12:45:11,36-50,Government,Yes,383,5-6 days/week,2,2,Yes,Chembur Station,High,3,4,3,4,Smart Card,20
+RESP022,2026-09-10 13:00:00,26-35,Employed,Yes,364,Daily,1,1,Yes,SCLR,Severe,2,3,2,3,Chalo App,35
+RESP023,2026-09-10 13:15:25,18-25,Student,Yes,363,Daily,2,2,Yes,Diamond Garden,High,4,4,3,4,Chalo App,20
+RESP024,2026-09-10 13:30:50,50+,Employed,Yes,383,5-6 days/week,2,1,Yes,Chembur Station,High,3,3,3,3,Cash,25
+RESP025,2026-09-10 13:45:15,26-35,Business/Self-Employed,No,A-21,Occasionally,3,3,Yes,SCLR,Moderate,4,4,4,4,Chalo App,15
+RESP026,2026-09-10 14:00:10,18-25,Student,Yes,364,Daily,2,2,Yes,SCLR,Severe,3,3,3,4,Chalo App,25
+RESP027,2026-09-10 14:15:35,26-35,Employed,Yes,364,5-6 days/week,1,1,Yes,SCLR,Severe,3,3,2,3,Chalo App,30
+RESP028,2026-09-10 14:30:20,36-50,Employed,Yes,383,Daily,2,2,Yes,Chembur Station,High,4,4,3,4,Smart Card,20
+RESP029,2026-09-10 14:45:45,18-25,Student,Yes,363,5-6 days/week,2,2,Yes,Diamond Garden,High,3,4,3,3,Chalo App,25
+RESP030,2026-09-10 15:00:00,26-35,Employed,Yes,364,Daily,2,1,Yes,SCLR,Severe,3,3,2,4,Chalo App,25
+RESP031,2026-09-10 15:15:15,50+,Retired,No,Other,Occasionally,3,3,No,None,Low,4,4,4,4,Cash,20
+RESP032,2026-09-10 15:30:40,18-25,Student,Yes,364,Daily,1,2,Yes,SCLR,Severe,3,3,3,3,Chalo App,30
+RESP033,2026-09-10 15:45:50,26-35,Employed,Yes,383,5-6 days/week,2,2,Yes,Chembur Station,High,3,3,3,4,Smart Card,20
+RESP034,2026-09-10 16:00:10,36-50,Government,Yes,363,Daily,2,1,Yes,Diamond Garden,High,3,4,3,3,Chalo App,25
+RESP035,2026-09-10 16:15:20,18-25,Student,Yes,A-21,3-4 days/week,4,3,No,SCLR,Moderate,5,5,4,5,Chalo App,15
+RESP036,2026-09-10 16:30:45,26-35,Employed,Yes,364,Daily,2,1,Yes,SCLR,Severe,3,3,2,3,Chalo App,30
+RESP037,2026-09-10 16:45:10,36-50,Business/Self-Employed,Yes,383,5-6 days/week,2,2,Yes,Chembur Station,High,3,3,3,3,Cash,25
+RESP038,2026-09-10 17:00:00,18-25,Student,Yes,364,Daily,1,1,Yes,SCLR,Severe,2,3,2,3,Chalo App,35
+RESP039,2026-09-10 17:15:30,26-35,Employed,Yes,363,5-6 days/week,2,2,Yes,Diamond Garden,High,4,4,3,4,Chalo App,20
+RESP040,2026-09-10 17:30:15,50+,Employed,Yes,364,Daily,2,2,Yes,SCLR,Severe,3,3,3,4,Smart Card,25
+RESP041,2026-09-10 17:45:40,18-25,Student,Yes,383,Daily,2,1,Yes,Chembur Station,Severe,3,3,2,3,Chalo App,30
+RESP042,2026-09-10 18:00:10,26-35,Employed,Yes,364,5-6 days/week,1,1,Yes,SCLR,Severe,3,3,3,3,Chalo App,30
+RESP043,2026-09-10 18:15:25,36-50,Employed,Yes,A-21,3-4 days/week,3,3,Yes,SCLR,Moderate,4,4,4,5,Chalo App,15
+RESP044,2026-09-10 18:30:50,18-25,Student,Yes,363,Daily,2,2,Yes,Diamond Garden,High,4,4,3,4,Chalo App,20
+RESP045,2026-09-10 18:45:15,26-35,Employed,Yes,364,Daily,2,1,Yes,SCLR,Severe,3,3,2,3,Chalo App,25
+RESP046,2026-09-10 19:00:00,50+,Government,Yes,383,5-6 days/week,2,2,Yes,Chembur Station,High,3,4,3,4,Smart Card,20
+RESP047,2026-09-10 19:15:10,18-25,Student,Yes,364,Daily,1,1,Yes,SCLR,Severe,3,3,2,3,Chalo App,30
+RESP048,2026-09-10 19:30:25,26-35,Business/Self-Employed,Yes,363,5-6 days/week,2,2,Yes,Diamond Garden,High,3,3,3,3,Cash,25
+RESP049,2026-09-10 19:45:40,36-50,Employed,Yes,364,Daily,2,1,Yes,SCLR,Severe,3,3,3,4,Chalo App,25
+RESP050,2026-09-10 20:00:00,18-25,Student,Yes,383,Daily,2,2,Yes,Chembur Station,High,4,4,3,4,Chalo App,20
+RESP051,2026-09-11 08:15:10,26-35,Employed,Yes,364,Daily,1,1,Yes,SCLR,Severe,2,3,2,3,Chalo App,35
+RESP052,2026-09-11 08:30:20,18-25,Student,Yes,364,5-6 days/week,2,2,Yes,SCLR,Severe,3,3,2,3,Chalo App,25
+RESP053,2026-09-11 08:45:30,36-50,Employed,Yes,383,Daily,2,1,Yes,Chembur Station,High,3,4,3,4,Smart Card,20
+RESP054,2026-09-11 09:00:00,26-35,Employed,Yes,363,5-6 days/week,2,2,Yes,Diamond Garden,High,4,4,3,4,Chalo App,25
+RESP055,2026-09-11 09:15:45,18-25,Student,Yes,A-21,3-4 days/week,3,3,No,None,Moderate,5,5,4,5,Chalo App,15
+RESP056,2026-09-11 09:30:15,50+,Retired,No,364,Occasionally,3,3,Yes,SCLR,Moderate,4,4,3,4,Cash,20
+RESP057,2026-09-11 09:45:25,26-35,Business/Self-Employed,Yes,364,Daily,2,1,Yes,SCLR,Severe,3,3,3,3,Chalo App,30
+RESP058,2026-09-11 10:00:10,18-25,Student,Yes,383,Daily,1,2,Yes,Chembur Station,Severe,3,3,2,3,Chalo App,25
+RESP059,2026-09-11 10:15:35,36-50,Government,Yes,363,5-6 days/week,2,2,Yes,Diamond Garden,High,3,4,3,4,Smart Card,20
+RESP060,2026-09-11 10:30:50,26-35,Employed,Yes,364,Daily,2,1,Yes,SCLR,Severe,3,3,3,4,Chalo App,30
+RESP061,2026-09-11 10:45:15,18-25,Student,Yes,364,5-6 days/week,2,2,Yes,SCLR,Severe,3,3,2,3,Chalo App,25
+RESP062,2026-09-11 11:00:00,36-50,Employed,Yes,383,Daily,2,1,Yes,Chembur Station,High,3,3,3,4,Chalo App,20
+RESP063,2026-09-11 11:15:20,26-35,Employed,Yes,A-21,3-4 days/week,4,3,Yes,SCLR,Moderate,4,5,4,5,Chalo App,15
+RESP064,2026-09-11 11:30:45,18-25,Student,Yes,363,Daily,2,2,Yes,Diamond Garden,High,4,4,3,4,Smart Card,20
+RESP065,2026-09-11 11:45:10,50+,Employed,Yes,364,5-6 days/week,1,1,Yes,SCLR,Severe,3,3,2,3,Cash,30
+RESP066,2026-09-11 12:00:25,26-35,Business/Self-Employed,Yes,364,Daily,2,2,Yes,SCLR,Severe,3,3,3,3,Chalo App,25
+RESP067,2026-09-11 12:15:40,18-25,Student,Yes,383,Daily,2,1,Yes,Chembur Station,Severe,3,4,3,4,Chalo App,25
+RESP068,2026-09-11 12:30:00,36-50,Employed,Yes,363,5-6 days/week,2,2,Yes,Diamond Garden,High,3,3,3,3,Smart Card,20
+RESP069,2026-09-11 12:45:15,26-35,Employed,Yes,364,Daily,1,1,Yes,SCLR,Severe,2,3,2,3,Chalo App,35
+RESP070,2026-09-11 13:00:30,18-25,Student,Yes,364,5-6 days/week,2,2,Yes,SCLR,High,3,3,3,4,Chalo App,25
+RESP071,2026-09-11 13:15:45,50+,Government,Yes,383,Daily,2,2,Yes,Chembur Station,High,4,4,3,4,Smart Card,20
+RESP072,2026-09-11 13:30:10,26-35,Employed,Yes,A-21,3-4 days/week,3,3,Yes,SCLR,Moderate,4,4,4,5,Chalo App,15
+RESP073,2026-09-11 13:45:25,18-25,Student,Yes,363,Daily,2,1,Yes,Diamond Garden,High,4,4,3,4,Chalo App,25
+RESP074,2026-09-11 14:00:00,36-50,Business/Self-Employed,Yes,364,Daily,2,2,Yes,SCLR,Severe,3,3,3,3,Cash,25
+RESP075,2026-09-11 14:15:15,26-35,Employed,Yes,383,5-6 days/week,1,1,Yes,Chembur Station,Severe,3,3,2,3,Chalo App,30
+RESP076,2026-09-11 14:30:40,18-25,Student,Yes,364,Daily,2,2,Yes,SCLR,Severe,3,3,3,4,Chalo App,25
+RESP077,2026-09-11 14:45:50,50+,Retired,No,Other,Occasionally,3,3,No,None,Low,4,4,4,4,Cash,20
+RESP078,2026-09-11 15:00:10,26-35,Employed,Yes,363,5-6 days/week,2,2,Yes,Diamond Garden,High,3,4,3,3,Smart Card,20
+RESP079,2026-09-11 15:15:30,18-25,Student,Yes,364,Daily,1,1,Yes,SCLR,Severe,3,3,2,3,Chalo App,30
+RESP080,2026-09-11 15:30:45,36-50,Employed,Yes,383,Daily,2,2,Yes,Chembur Station,High,4,4,3,4,Chalo App,20
+RESP081,2026-09-11 15:45:00,26-35,Employed,Yes,364,5-6 days/week,2,1,Yes,SCLR,Severe,3,3,3,4,Chalo App,25
+RESP082,2026-09-11 16:00:20,18-25,Student,Yes,A-21,3-4 days/week,4,3,No,SCLR,Moderate,5,5,5,5,Chalo App,15
+RESP083,2026-09-11 16:15:35,36-50,Government,Yes,363,Daily,2,2,Yes,Diamond Garden,High,3,4,3,4,Smart Card,25
+RESP084,2026-09-11 16:30:50,26-35,Business/Self-Employed,Yes,364,Daily,1,1,Yes,SCLR,Severe,2,3,2,3,Cash,35
+RESP085,2026-09-11 16:45:15,18-25,Student,Yes,383,5-6 days/week,2,2,Yes,Chembur Station,High,4,4,3,4,Chalo App,20
+RESP086,2026-09-11 17:00:00,50+,Employed,Yes,364,Daily,2,1,Yes,SCLR,Severe,3,3,2,3,Smart Card,30
+RESP087,2026-09-11 17:15:25,26-35,Employed,Yes,364,5-6 days/week,2,2,Yes,SCLR,Severe,3,3,3,4,Chalo App,25
+RESP088,2026-09-11 17:30:40,18-25,Student,Yes,363,Daily,2,2,Yes,Diamond Garden,High,4,4,3,4,Chalo App,20
+RESP089,2026-09-11 17:45:55,36-50,Employed,Yes,383,Daily,1,1,Yes,Chembur Station,Severe,3,3,2,3,Chalo App,30
+RESP090,2026-09-11 18:00:10,26-35,Employed,Yes,364,Daily,2,1,Yes,SCLR,Severe,3,3,3,3,Chalo App,25
+RESP091,2026-09-11 18:15:30,18-25,Student,Yes,A-21,3-4 days/week,3,3,Yes,SCLR,Moderate,4,4,4,5,Chalo App,15
+RESP092,2026-09-11 18:30:45,50+,Retired,No,363,Occasionally,3,3,No,Diamond Garden,Moderate,4,4,4,4,Cash,20
+RESP093,2026-09-11 18:45:00,26-35,Business/Self-Employed,Yes,364,Daily,2,2,Yes,SCLR,Severe,3,3,3,4,Chalo App,25
+RESP094,2026-09-11 19:00:20,18-25,Student,Yes,383,5-6 days/week,2,1,Yes,Chembur Station,High,3,4,3,4,Smart Card,20
+RESP095,2026-09-11 19:15:35,36-50,Employed,Yes,364,Daily,1,1,Yes,SCLR,Severe,2,3,2,3,Chalo App,35
+RESP096,2026-09-11 19:30:50,26-35,Employed,Yes,363,Daily,2,2,Yes,Diamond Garden,High,4,4,3,4,Chalo App,20
+RESP097,2026-09-11 19:45:15,18-25,Student,Yes,364,5-6 days/week,2,2,Yes,SCLR,Severe,3,3,3,4,Chalo App,25
+RESP098,2026-09-11 20:00:00,50+,Government,Yes,383,Daily,2,2,Yes,Chembur Station,High,3,4,3,4,Smart Card,20
+RESP099,2026-09-11 20:15:10,26-35,Employed,Yes,A-21,3-4 days/week,4,3,No,None,Low,5,5,4,5,Chalo App,15
+RESP100,2026-09-11 20:30:25,18-25,Student,Yes,364,Daily,2,1,Yes,SCLR,Severe,3,3,2,3,Chalo App,30
