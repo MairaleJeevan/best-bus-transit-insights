@@ -17,7 +17,7 @@
 
 ### 4.1.2 Interactive Visualizations Module (`charts.js`)
 Contains 8 Chart.js canvas components:
-1. **Route Usage Distribution**: Vertical bar chart highlighting demand on routes 364, 383, 363, A-21, etc.
+1. **Route Usage Distribution**: Vertical bar chart highlighting demand on routes 363, 364, 367, 383, 399, 430, 501, 663, and A-21.
 2. **Peak-Hour Frequency & Reliability**: Grouped bar chart comparing bus frequency vs arrival punctuality ratings (1-5 scale).
 3. **Operational Bottlenecks Intensity**: Horizontal bar chart identifying delay rates at SCLR, Chembur Station, Diamond Garden, etc.
 4. **Hourly Overcrowding vs Bus Frequency Trend**: Line chart analyzing density curves across the day (handles honest availability check).
@@ -41,7 +41,7 @@ Contains 8 Chart.js canvas components:
 - Standardizes column headers using alias dictionary.
 - Validates and deduplicates records by `Response_ID`.
 - Imputes missing rating and text fields using conservative median/modal values.
-- Normalizes route codes (e.g. "Route 364" -> "364", "A21" -> "A-21").
+- Normalizes supported route codes (including "Route 501" -> "501" and "A21" -> "A-21"); unknown routes are grouped as "Other".
 - Normalizes boolean indicators ("Yes", "No").
 - Generates data pipeline validation summary report.
 

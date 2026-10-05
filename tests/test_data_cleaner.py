@@ -23,12 +23,17 @@ def test_cleaner_deduplication():
 
 
 def test_cleaner_route_normalization():
-    """Verify route normalization for variations like 'Route 364', 'A21', 'Bus 383'."""
+    """Verify route normalization for known routes and unknown route fallback."""
     raw_df = pd.DataFrame([
         {"Response_ID": "R1", "Primary_Route_Number": "Route 364"},
         {"Response_ID": "R2", "Primary_Route_Number": "A21"},
         {"Response_ID": "R3", "Primary_Route_Number": "Bus 383"},
         {"Response_ID": "R4", "Primary_Route_Number": "999"},
+        {"Response_ID": "R5", "Primary_Route_Number": "Route 501"},
+        {"Response_ID": "R6", "Primary_Route_Number": "Bus 430"},
+        {"Response_ID": "R7", "Primary_Route_Number": "663"},
+        {"Response_ID": "R8", "Primary_Route_Number": "Route 399"},
+        {"Response_ID": "R9", "Primary_Route_Number": "Bus 367"},
     ])
     cleaner = DataCleaner()
     df, _ = cleaner.clean(raw_df)
@@ -36,7 +41,7 @@ def test_cleaner_route_normalization():
     assert routes[0] == "364"
     assert routes[1] == "A-21"
     assert routes[2] == "383"
-    assert routes[3] == "Other"
+    assert routes == ["364", "A-21", "383", "Other", "501", "430", "663", "399", "367"]
 
 
 def test_cleaner_boolean_normalization():

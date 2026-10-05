@@ -9,7 +9,7 @@
 | `Age_Group` | String | No | `18-25`, `26-35`, `36-50`, `50+` | Commuter age category |
 | `Occupation` | String | No | `Student`, `Employed`, `Government`, `Business/Self-Employed`, `Retired`, `Other` | Commuter occupational group |
 | `Frequent_User_Status` | String (Bool) | No | `Yes`, `No` | Regular commuter indicator |
-| `Primary_Route_Number` | String | No | `364`, `383`, `363`, `A-21`, `Other` | Primary BEST route used |
+| `Primary_Route_Number` | String | No | `363`, `364`, `367`, `383`, `399`, `430`, `501`, `663`, `A-21`, `Other` | Primary BEST route used |
 | `Travel_Frequency` | String | No | `Daily`, `5-6 days/week`, `3-4 days/week`, `Occasionally` | Commute frequency |
 | `Peak_Hour_Frequency_Rating` | Integer | No | `1` to `5` | Frequency adequacy rating |
 | `Schedule_Arrival_Reliability` | Integer | No | `1` to `5` | Punctuality rating |

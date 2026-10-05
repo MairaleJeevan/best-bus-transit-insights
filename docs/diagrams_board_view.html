@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEST Bus Transit Insights - System Design Diagrams (Methodology)</title>
+  <!-- Mermaid.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.2);
+      --success: #34d399;
+      --warning: #fbbf24;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 24px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 36px;
+      padding: 24px;
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      position: sticky;
+      top: 16px;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(12px);
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .nav-btn {
+      padding: 8px 18px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .nav-btn:hover {
+      background: var(--accent);
+      color: #0f172a;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .diagram-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 40px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+
+    .diagram-header {
+      padding: 18px 24px;
+      background: rgba(30, 41, 59, 0.95);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .diagram-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .diagram-content {
+      padding: 28px 20px;
+      background: #0b1120;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: auto;
+      min-height: 380px;
+    }
+
+    .diagram-content .mermaid {
+      width: 100%;
+    }
+
+    .diagram-content .mermaid svg {
+      display: block;
+      width: 100% !important;
+      max-width: 1000px !important;
+      height: auto !important;
+      margin: 0 auto;
+    }
+
+    .explanation-panel {
+      padding: 20px 24px;
+      background: rgba(15, 23, 42, 0.6);
+      border-top: 1px solid var(--border);
+    }
+
+    .explanation-title {
+      font-weight: 600;
+      color: var(--success);
+      margin-bottom: 8px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .points-list {
+      list-style-type: disc;
+      padding-left: 20px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .points-list li {
+      margin-bottom: 6px;
+    }
+
+    .board-chalk-note {
+      margin-top: 12px;
+      padding: 10px 14px;
+      background: rgba(251, 191, 36, 0.1);
+      border-left: 4px solid var(--warning);
+      border-radius: 4px;
+      color: #fde68a;
+      font-size: 0.9rem;
+    }
+
+    @media print {
+      body { background: white; color: black; }
+      .nav-bar { display: none; }
+      .diagram-card { break-inside: avoid; border: 1px solid #ccc; }
+      .diagram-content { background: white; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <span class="badge">Academic Project Methodology</span>
+    <h1>BEST Bus Transit Insights & Analytics</h1>
+    <p class="subtitle">Chapter 3: System Design Documentation & UML Architecture</p>
+  </div>
+
+  <nav class="nav-bar">
+    <a href="#er-diagram" class="nav-btn">3.1 ER Diagram</a>
+    <a href="#class-diagram" class="nav-btn">3.2 Class Diagram</a>
+    <a href="#flowchart" class="nav-btn">3.3 Flow Chart</a>
+    <a href="#activity-diagram" class="nav-btn">3.4 Activity Diagram</a>
+    <a href="#sequence-diagram" class="nav-btn">3.5 Sequence Diagram</a>
+  </nav>
+
+  <!-- 3.1 ER DIAGRAM -->
+  <section id="er-diagram" class="diagram-card">
+    <div class="diagram-header">
+      <div class="diagram-title">
+        <span>📊 3.1 Entity-Relationship (ER) Diagram</span>
+      </div>
+      <span style="color: var(--text-muted); font-size: 0.9rem;">Logical Analytical Schema</span>
+    </div>
+    <div class="diagram-content">
+      <div class="mermaid">
+erDiagram
+    COMMUTER_PROFILE ||--o{ SURVEY_RESPONSE : "submits"
+    ROUTE ||--o{ SURVEY_RESPONSE : "travels on"
+    BOTTLENECK ||--o{ SURVEY_RESPONSE : "encounters"
+    PAYMENT_METHOD ||--o{ SURVEY_RESPONSE : "pays via"
+    SURVEY_RESPONSE ||--|| SURVEY_METRIC : "records"
+
+    COMMUTER_PROFILE {
+        string commuter_id PK "Unique ID"
+        string age_group "18-25, 26-40, 41-60"
+        string occupation "Student, Working Prof, Business"
+        string frequent_user_status "Regular / Occasional"
+        string travel_frequency "Daily, 3-4x/week, Rare"
+    }
+
+    ROUTE {
+        string route_number PK "364, 383, 363, 501, 430, 663, 399, 367, A-21"
+        string route_name "Corridor Route"
+        string origin_terminus "Chembur Station"
+        string destination_terminus "Kurla East / Nehru Nagar"
+    }
+
+    BOTTLENECK {
+        string bottleneck_id PK "Unique Chokepoint ID"
+        string location_name "SCLR, Chembur Stn, Diamond Garden"
+        string corridor_segment "Nehru Nagar - Kurla"
+        string severity_tier "High, Moderate, Low"
+    }
+
+    PAYMENT_METHOD {
+        string payment_id PK "Unique Mode ID"
+        string method_name "Chalo App, Smart Card, Cash, UPI"
+        string category "Digital / Physical"
+    }
+
+    SURVEY_RESPONSE {
+        string response_id PK "Response UUID"
+        datetime timestamp "Submission Time"
+        string commuter_id FK "References COMMUTER_PROFILE"
+        string route_number FK "References ROUTE"
+        string bottleneck_location FK "References BOTTLENECK"
+        string payment_method FK "References PAYMENT_METHOD"
+    }
+
+    SURVEY_METRIC {
+        string metric_id PK "Metric Record ID"
+        string response_id FK "References SURVEY_RESPONSE"
+        int bus_frequency_rating "Rating 1 to 5"
+        int schedule_reliability "Rating 1 to 5"
+        string overcrowding_level "Low, Moderate, High, Severe"
+        int bus_condition_rating "Rating 1 to 5"
+        int avg_waiting_time_min "Delay in minutes"
+    }
+      </div>
+    </div>
+    <div class="explanation-panel">
+      <div class="explanation-title">💡 How to Explain & Draw on Board:</div>
+      <ul class="points-list">
+        <li><strong>Central Table:</strong> <code>SURVEY_RESPONSE</code> is the central fact entity linking all survey observations.</li>
+        <li><strong>Dimension Entities:</strong> 4 normalized lookup entities (<code>COMMUTER_PROFILE</code>, <code>ROUTE</code>, <code>BOTTLENECK</code>, <code>PAYMENT_METHOD</code>).</li>
+        <li><strong>Metrics:</strong> 1-to-1 extension table <code>SURVEY_METRIC</code> capturing quantified scores (1–5 ratings and delays).</li>
+      </ul>
+      <div class="board-chalk-note">
+        <strong>Board Drawing Tip:</strong> Draw the central box labeled <code>SURVEY_RESPONSE</code> in the middle, and 5 surrounding boxes with arrows pointing inward/outward with 1:N cardinalities.
+      </div>
+    </div>
+  </section>
+
+  <!-- 3.2 CLASS DIAGRAM -->
+  <section id="class-diagram" class="diagram-card">
+    <div class="diagram-header">
+      <div class="diagram-title">
+        <span>🏛️ 3.2 Class Diagram</span>
+      </div>
+      <span style="color: var(--text-muted); font-size: 0.9rem;">Backend Python/Flask Architecture</span>
+    </div>
+    <div class="diagram-content">
+      <div class="mermaid">
+classDiagram
+    direction TB
+
+    class AbstractDataLoader {
+        +load_data()
+    }
+    class CSVLoader {
+        -file_path
+        +load_data()
+        -validate_file_exists()
+    }
+    class GoogleSheetsLoader {
+        -sheet_id
+        -credentials_path
+        +load_data()
+        -authenticate()
+    }
+    class DataCleaner {
+        -column_aliases
+        -default_values
+        +clean(raw_df)
+        -normalize_route(val)
+        -normalize_boolean(val)
+        -normalize_age_group(val)
+        -normalize_occupation(val)
+        -normalize_payment(val)
+        -impute_missing_values(df)
+    }
+    class FilterService {
+        +apply_filters(df, filters)
+        -filter_by_route(df, route)
+        -filter_by_demographics(df, demo_filters)
+    }
+    class MetricsService {
+        +get_summary_kpis(df)
+        +get_parameter_diagnostics(df)
+        -calculate_crowding_index(df)
+        -calculate_peak_delay_rate(df)
+        -calculate_digital_share(df)
+    }
+    class ChartDataService {
+        +get_route_distribution(df)
+        +get_peak_reliability_distribution(df)
+        +get_bottleneck_analysis(df)
+        +get_hourly_analysis(df)
+        +get_transit_health_profile(df)
+        +get_payment_distribution(df)
+        +get_demographics_distribution(df)
+        +get_bus_condition_breakdown(df)
+    }
+    class AnalyticsService {
+        -cached_df
+        -cached_validation
+        -last_updated
+        -cleaner
+        +refresh(source)
+        +get_analytics(filters)
+        +get_filter_options()
+        +export_filtered_csv(filters)
+    }
+    class FlaskAppController {
+        +get_dashboard_analytics()
+        +refresh_dataset()
+        +export_csv()
+        +health_check()
+    }
+
+    AbstractDataLoader <|-- CSVLoader
+    AbstractDataLoader <|-- GoogleSheetsLoader
+    AnalyticsService *-- DataCleaner
+    AnalyticsService ..> AbstractDataLoader
+    AnalyticsService ..> FilterService
+    AnalyticsService ..> MetricsService
+    AnalyticsService ..> ChartDataService
+    FlaskAppController --> AnalyticsService
+      </div>
+    </div>
+    <div class="explanation-panel">
+      <div class="explanation-title">💡 How to Explain & Draw on Board:</div>
+      <ul class="points-list">
+        <li><strong>Abstraction:</strong> <code>AbstractDataLoader</code> with polymorphism for CSV and Google Sheets sources.</li>
+        <li><strong>Pipeline Segregation:</strong> Clear separation of concerns between <code>DataCleaner</code>, <code>FilterService</code>, <code>MetricsService</code>, and <code>ChartDataService</code>.</li>
+        <li><strong>Controller:</strong> <code>FlaskAppController</code> exposes standard REST endpoints to the Single Page Application.</li>
+      </ul>
+      <div class="board-chalk-note">
+        <strong>Board Drawing Tip:</strong> Draw 3 tiers: Top = <code>FlaskAppController</code>, Middle = <code>AnalyticsService</code> with its 4 utility services, Bottom = <code>AbstractDataLoader</code> with 2 derived classes.
+      </div>
+    </div>
+  </section>
+
+  <!-- 3.3 FLOW CHART -->
+  <section id="flowchart" class="diagram-card">
+    <div class="diagram-header">
+      <div class="diagram-title">
+        <span>🔄 3.3 System Flow Chart</span>
+      </div>
+      <span style="color: var(--text-muted); font-size: 0.9rem;">End-to-End Execution Flow</span>
+    </div>
+    <div class="diagram-content">
+      <div class="mermaid">
+flowchart TD
+    Start([Start System]) --> IngestionChoice{Data Ingestion Source}
+    
+    IngestionChoice -->|Cloud Live Stream| GForms[Google Forms Survey Collection]
+    GForms --> GSheets[Google Sheets Cloud Database]
+    GSheets --> GLoader[GoogleSheetsLoader via gspread API]
+    
+    IngestionChoice -->|Local / Offline| LocalCSV[Local Survey CSV File]
+    LocalCSV --> CSVLoad[CSVLoader Ingestion]
+    
+    GLoader --> RawDF[(Raw Pandas DataFrame)]
+    CSVLoad --> RawDF
+    
+    RawDF --> Cleaning[DataCleaner: Header Aliasing & Type Conversion]
+    Cleaning --> Deduplicate[Deduplication & Missing Value Imputation]
+    Deduplicate --> Norm[Value Normalization: Routes, Ratings, Demographics]
+    Norm --> Cache[(In-Memory Validated Cache DataFrame)]
+    
+    Cache --> UserQuery[/User Loads Dashboard / Applies Filters/]
+    UserQuery --> RouteHandler[Flask REST Controller: /api/analytics]
+    RouteHandler --> FilterEngine[FilterService: Route, Age, Frequency Slicing]
+    
+    FilterEngine --> SlicedDF[(Filtered DataFrame Slice)]
+    
+    SlicedDF --> ParallelCalc1[MetricsService: Summary KPIs & Diagnostics]
+    SlicedDF --> ParallelCalc2[ChartDataService: 8 Chart Transformations]
+    
+    ParallelCalc1 --> JSONBuilder[Assemble Unified JSON Analytics Payload]
+    ParallelCalc2 --> JSONBuilder
+    
+    JSONBuilder --> APIResponse[HTTP 200 OK Response]
+    APIResponse --> RenderUI[Frontend SPA: Render 8 Chart.js Visuals & KPI Cards]
+    
+    RenderUI --> InteractionCheck{User Action?}
+    InteractionCheck -->|Change Filter| FilterEngine
+    InteractionCheck -->|Export CSV| ExportEngine[Generate Filtered CSV Download]
+    InteractionCheck -->|Refresh Data| IngestionChoice
+    InteractionCheck -->|Idle / Inspect| EndNode([Dashboard Active])
+      </div>
+    </div>
+    <div class="explanation-panel">
+      <div class="explanation-title">💡 How to Explain & Draw on Board:</div>
+      <ul class="points-list">
+        <li><strong>Step 1:</strong> Ingestion from Google Sheets or CSV.</li>
+        <li><strong>Step 2:</strong> Data Cleaning, Type Standardization, Deduplication, and Caching.</li>
+        <li><strong>Step 3:</strong> Slicing data based on user filter parameters.</li>
+        <li><strong>Step 4:</strong> NumPy/Pandas computation of KPIs and formatting for Chart.js.</li>
+      </ul>
+      <div class="board-chalk-note">
+        <strong>Board Drawing Tip:</strong> Draw a straight top-to-bottom pipeline with a split for Dual Data Sources at the top and a parallel split for KPIs + Charts in the middle.
+      </div>
+    </div>
+  </section>
+
+  <!-- 3.4 ACTIVITY DIAGRAM -->
+  <section id="activity-diagram" class="diagram-card">
+    <div class="diagram-header">
+      <div class="diagram-title">
+        <span>⚡ 3.4 Activity Diagram</span>
+      </div>
+      <span style="color: var(--text-muted); font-size: 0.9rem;">State Transitions & User Workflow</span>
+    </div>
+    <div class="diagram-content">
+      <div class="mermaid">
+stateDiagram-v2
+    [*] --> InitializeDashboard : User opens Web Browser
+
+    InitializeDashboard --> FetchInitialData : Dispatch GET /api/analytics
+
+    state FetchInitialData {
+        [*] --> CheckCache
+        CheckCache --> ServeCache : Cache Valid & Warm
+        CheckCache --> ReadDataSource : Cache Cold / Expired
+        ReadDataSource --> CleanAndValidate : Load CSV or Sheets
+        CleanAndValidate --> StoreCache : Update In-Memory Cache
+        StoreCache --> ServeCache
+    }
+
+    FetchInitialData --> ApplyActiveFilters
+
+    state ProcessAnalytics {
+        [*] --> ForkAnalytics
+        state ForkAnalytics <<fork>>
+        state JoinAnalytics <<join>>
+        ForkAnalytics --> ComputeKPIs : Calculate Delay, Crowding, Digital Share
+        ForkAnalytics --> ComputeCharts : Format 8 Datasets (Bar, Line, Radar, Donut)
+        ForkAnalytics --> ComputeDiagnostics : Evaluate Sentiment & Concern Tags
+        ComputeKPIs --> JoinAnalytics
+        ComputeCharts --> JoinAnalytics
+        ComputeDiagnostics --> JoinAnalytics
+        JoinAnalytics --> [*]
+    }
+
+    ApplyActiveFilters --> ProcessAnalytics
+    ProcessAnalytics --> TransmitJSONPayload : HTTP 200 Response
+
+    state UI_Rendering {
+        [*] --> ForkRendering
+        state ForkRendering <<fork>>
+        state JoinRendering <<join>>
+        ForkRendering --> RenderCards : Update KPI Banner
+        ForkRendering --> RenderCharts : Update Chart.js Canvas
+        ForkRendering --> RenderMatrix : Populate Diagnostic Table
+        RenderCards --> JoinRendering
+        RenderCharts --> JoinRendering
+        RenderMatrix --> JoinRendering
+        JoinRendering --> [*]
+    }
+
+    TransmitJSONPayload --> UI_Rendering
+    UI_Rendering --> AwaitingUserInput : Dashboard Ready
+
+    AwaitingUserInput --> SlicingData : User Adjusts Filter (Route / Age / Occupation)
+    SlicingData --> ApplyActiveFilters
+
+    AwaitingUserInput --> ManualRefresh : User clicks "Refresh Data"
+    ManualRefresh --> ReadDataSource
+
+    AwaitingUserInput --> DownloadCSV : User clicks "Export CSV"
+    DownloadCSV --> GenerateFile : Stream CSV Buffer
+    GenerateFile --> AwaitingUserInput
+      </div>
+    </div>
+    <div class="explanation-panel">
+      <div class="explanation-title">💡 How to Explain & Draw on Board:</div>
+      <ul class="points-list">
+        <li><strong>Initial State:</strong> Solid circle <code>●</code> leading to Initial Load.</li>
+        <li><strong>Fork & Join (Parallelism):</strong> Parallel branches calculating summary KPIs, Chart.js datasets, and diagnostic matrix simultaneously.</li>
+        <li><strong>Decision / Loop:</strong> Dynamic user actions (Changing Filters, Exporting CSV, Refreshing data) loop back to appropriate states.</li>
+      </ul>
+      <div class="board-chalk-note">
+        <strong>Board Drawing Tip:</strong> Use solid black circle for start <code>(●)</code>, rounded rectangles for states, horizontal thick bars for fork/join parallel threads, and bullseye <code>(◉)</code> for final state.
+      </div>
+    </div>
+  </section>
+
+  <!-- 3.5 SEQUENCE DIAGRAM -->
+  <section id="sequence-diagram" class="diagram-card">
+    <div class="diagram-header">
+      <div class="diagram-title">
+        <span>⏱️ 3.5 Sequence Diagram</span>
+      </div>
+      <span style="color: var(--text-muted); font-size: 0.9rem;">Chronological Message Sequence</span>
+    </div>
+    <div class="diagram-content">
+      <div class="mermaid">
+sequenceDiagram
+    autonumber
+    actor User as Commuter / Transport Analyst
+    participant Browser as Browser Client (SPA)
+    participant Flask as Flask REST API
+    participant Service as AnalyticsService
+    participant Loader as Data Loader (Sheets / CSV)
+    participant Cleaner as DataCleaner
+    participant Filter as FilterService
+    participant Metrics as MetricsService & ChartDataService
+    participant Charts as Chart.js UI Engine
+
+    User->>Browser: Opens Dashboard URL / Selects Filter
+    Browser->>Flask: GET /api/analytics?route=364&commuter=Regular
+    activate Flask
+    Flask->>Service: get_analytics(filters)
+    activate Service
+
+    alt In-Memory Cache Empty or Manual Refresh
+        Service->>Loader: load_data()
+        activate Loader
+        Loader-->>Service: raw_data_frame
+        deactivate Loader
+        Service->>Cleaner: clean(raw_data_frame)
+        activate Cleaner
+        Cleaner-->>Service: (cleaned_df, validation_report)
+        deactivate Cleaner
+        Service->>Service: store in cached_df
+    end
+
+    Service->>Filter: apply_filters(cached_df, filters)
+    activate Filter
+    Filter-->>Service: filtered_df
+    deactivate Filter
+
+    par Compute Summary KPIs
+        Service->>Metrics: get_summary_kpis(filtered_df)
+        Metrics-->>Service: kpi_dict
+    and Generate Visual Chart Data
+        Service->>Metrics: generate_all_chart_data(filtered_df)
+        Metrics-->>Service: charts_dict
+    and Evaluate Diagnostic Indicators
+        Service->>Metrics: get_parameter_diagnostics(filtered_df)
+        Metrics-->>Service: diagnostics_list
+    end
+
+    Service-->>Flask: unified_analytics_payload
+    deactivate Service
+    Flask-->>Browser: 200 OK (JSON Payload)
+    deactivate Flask
+
+    Browser->>Charts: renderKPIs(summary)
+    Browser->>Charts: updateCharts(charts_dict)
+    Browser->>Browser: renderDiagnosticTable(diagnostics_list)
+    Browser-->>User: Interactive Visual Dashboard Displayed
+      </div>
+    </div>
+    <div class="explanation-panel">
+      <div class="explanation-title">💡 How to Explain & Draw on Board:</div>
+      <ul class="points-list">
+        <li><strong>Participants:</strong> <code>User</code> $\to$ <code>Browser (SPA)</code> $\to$ <code>Flask REST API</code> $\to$ <code>AnalyticsService</code> $\to$ <code>DataLoader / Cleaner</code> $\to$ <code>Filter / Metrics</code> $\to$ <code>Chart.js Engine</code>.</li>
+        <li><strong>Synchronous Calls:</strong> Solid arrows with solid heads (<code>->></code>).</li>
+        <li><strong>Asynchronous / Return Responses:</strong> Dashed arrows (<code>-->></code>).</li>
+        <li><strong>Alt Block:</strong> Shows cache fallback handling.</li>
+      </ul>
+      <div class="board-chalk-note">
+        <strong>Board Drawing Tip:</strong> Draw vertical dashed lifelines for the 7 components across the board, and horizontal arrows numbered 1 through 16 going left-to-right and right-to-left.
+      </div>
+    </div>
+  </section>
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        darkMode: true,
+        background: '#0b1120',
+        primaryColor: '#1e293b',
+        primaryBorderColor: '#38bdf8',
+        primaryTextColor: '#f8fafc',
+        lineColor: '#38bdf8',
+        secondaryColor: '#0f172a',
+        tertiaryColor: '#1e293b'
+      }
+    });
+  </script>
+</body>
+</html>

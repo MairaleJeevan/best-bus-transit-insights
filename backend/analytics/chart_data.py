@@ -6,6 +6,7 @@ Generates dynamically calculated arrays and payloads for all frontend visualizat
 import pandas as pd
 import numpy as np
 from typing import Dict, Any, List
+from backend.utils.validation import SUPPORTED_ROUTES
 
 
 class ChartDataService:
@@ -21,7 +22,7 @@ class ChartDataService:
         counts_series = df["Primary_Route_Number"].value_counts()
 
         # Sort with standard corridor routes prioritized
-        priority_order = ["364", "383", "363", "A-21", "Other"]
+        priority_order = [*SUPPORTED_ROUTES, "Other"]
         labels = []
         counts = []
         percentages = []

@@ -14,6 +14,7 @@ from backend.utils.validation import (
     ALLOWED_FREQUENCIES,
     ALLOWED_OVERCROWDING,
     ALLOWED_PAYMENTS,
+    SUPPORTED_ROUTES,
 )
 
 
@@ -189,13 +190,12 @@ class DataCleaner:
         s = re.sub(r"^BUS\s*", "", s, flags=re.IGNORECASE)
         if "A" in s and "21" in s:
             return "A-21"
-        if "364" in s:
-            return "364"
-        if "383" in s:
-            return "383"
-        if "363" in s:
-            return "363"
-        return s if s in ["364", "383", "363", "A-21"] else "Other"
+        for route in SUPPORTED_ROUTES:
+            if route == "A-21":
+                continue
+            if re.search(rf"(?<!\d){route}(?!\d)", s):
+                return route
+        return "Other"
 
     @staticmethod
     def _normalize_boolean(val: Any) -> str:

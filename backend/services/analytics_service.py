@@ -13,6 +13,7 @@ from backend.analytics.data_cleaner import DataCleaner
 from backend.analytics.filters import FilterService
 from backend.analytics.metrics import MetricsService
 from backend.analytics.chart_data import ChartDataService
+from backend.utils.validation import SUPPORTED_ROUTES
 
 
 class AnalyticsService:
@@ -131,12 +132,12 @@ class AnalyticsService:
         }
 
     def get_filter_options(self) -> Dict[str, List[str]]:
-        """Returns distinct options available in the cleaned dataset."""
+        """Returns supported routes plus category options available in the dataset."""
         df = self.get_cleaned_dataframe()
         if df.empty:
-            return {"routes": [], "occupations": [], "age_groups": []}
+            return {"routes": list(SUPPORTED_ROUTES), "occupations": [], "age_groups": []}
 
-        routes = sorted([str(r) for r in df["Primary_Route_Number"].dropna().unique() if str(r) != "Other"])
+        routes = list(SUPPORTED_ROUTES)
         if "Other" in df["Primary_Route_Number"].values:
             routes.append("Other")
 

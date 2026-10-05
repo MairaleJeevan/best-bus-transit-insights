@@ -23,6 +23,15 @@ def test_filter_by_route(sample_df):
     assert filtered.iloc[0]["Response_ID"] == "R1"
 
 
+def test_filter_by_added_routes():
+    added_routes = ["501", "430", "663", "399", "367"]
+    df = pd.DataFrame({"Primary_Route_Number": added_routes})
+
+    for route in added_routes:
+        filtered = FilterService.apply_filters(df, {"route": route})
+        assert filtered["Primary_Route_Number"].tolist() == [route]
+
+
 def test_filter_by_age_group(sample_df):
     filtered = FilterService.apply_filters(sample_df, {"age_group": "18-25"})
     assert len(filtered) == 2

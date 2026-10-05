@@ -36,7 +36,7 @@ const Filters = {
       const options = await Api.getFilterOptions();
       if (options.routes && options.routes.length > 0 && routeSelect) {
         routeSelect.innerHTML = '<option value="all">All Routes (Corridor)</option>' +
-          options.routes.map(r => `<option value="${r}">Route ${r}</option>`).join('');
+          options.routes.map(r => `<option value="${r}">${r === 'Other' ? 'Other Routes' : `Route ${r}`}</option>`).join('');
       }
 
       if (options.occupations && options.occupations.length > 0 && occupationSelect) {

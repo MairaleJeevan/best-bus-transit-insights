@@ -44,7 +44,7 @@ def test_api_routes_endpoint(client):
     assert response.status_code == 200
     data = response.get_json()
     assert "routes" in data
-    assert "364" in data["routes"]
+    assert {"364", "501", "430", "663", "399", "367"}.issubset(data["routes"])
 
 
 def test_api_export_csv(client):

@@ -25,6 +25,7 @@ ALLOWED_OCCUPATIONS = {"Student", "Employed", "Government", "Business/Self-Emplo
 ALLOWED_FREQUENCIES = {"Daily", "5-6 days/week", "3-4 days/week", "Occasionally"}
 ALLOWED_OVERCROWDING = {"Severe", "High", "Moderate", "Low"}
 ALLOWED_PAYMENTS = {"Chalo App", "Smart Card", "Cash", "UPI/QR", "Other"}
+SUPPORTED_ROUTES = ("364", "383", "363", "501", "430", "663", "399", "367", "A-21")
 
 
 def validate_file_extension(filename: str, allowed_extensions: set) -> bool:

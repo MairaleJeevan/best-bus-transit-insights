@@ -52,7 +52,7 @@ Chart.js Visualizations & Diagnostic Operational Matrix
    - *Top Bottleneck* (Primary congestion choke point)
 
 2. **8 Interactive Visualizations (Chart.js)**:
-   - **Route Usage Distribution**: Vertical bar chart highlighting routes 364, 383, 363, A-21, etc.
+   - **Route Usage Distribution**: Vertical bar chart highlighting routes 363, 364, 367, 383, 399, 430, 501, 663, and A-21.
    - **Peak-Hour Frequency & Reliability**: Grouped bar chart comparing bus frequency vs arrival punctuality ratings (1–5 scale).
    - **Operational Bottlenecks Intensity**: Horizontal bar chart detailing delay rates at SCLR, Chembur Station, Diamond Garden, etc.
    - **Hourly Overcrowding vs Bus Frequency Trend**: Line chart analyzing density curves across the day.
@@ -65,7 +65,7 @@ Chart.js Visualizations & Diagnostic Operational Matrix
    - Searchable, status-filtered diagnostic table comparing positive vs negative sentiment across core indicators with automated classification tags (`High Adoption`, `Acceptable`, `Operational Concern`, `Critical Deficit`) and actionable recommendations.
 
 4. **Multi-Parameter Pre-Analytics Filtering**:
-   - Filter by Route Focus, Commuter Segment, Age Group, Occupation, and Travel Frequency. Slices DataFrame before computing KPIs and charts.
+   - Filter by Route Focus (363, 364, 367, 383, 399, 430, 501, 663, or A-21), Commuter Segment, Age Group, Occupation, and Travel Frequency. Slices DataFrame before computing KPIs and charts.
 
 5. **Data Management & Export**:
    - Near-real-time data refresh (manual button + configurable auto-refresh intervals).
